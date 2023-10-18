@@ -1,0 +1,7 @@
+/node_modules
+/uploads
+.env.*
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
