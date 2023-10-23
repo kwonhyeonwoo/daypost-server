@@ -3,6 +3,7 @@ import { postController } from "../controllers/post/postController";
 import { getPostController } from "../controllers/post/getPostController";
 import { searchPostController } from "../controllers/post/searchPostController";
 import multer from "multer";
+import { deleteController } from "../controllers/postController";
 
 const postRouter = express.Router();
 const upload = multer({
@@ -11,4 +12,5 @@ const upload = multer({
 postRouter.post('/upload', upload.single('image'), postController);
 postRouter.get('/posts', getPostController);
 postRouter.get('/search', searchPostController);
+postRouter.delete('/delete/:id', deleteController);
 export default postRouter

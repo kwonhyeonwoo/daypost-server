@@ -58,7 +58,7 @@ app.get('/check', (req, res) => {
     }
 });
 
-app.use('/users', userRouter)
+app.use('/user', userRouter)
 app.use('/comment', commentRouter)
 app.use('/post', postRouter)
 export default app;
