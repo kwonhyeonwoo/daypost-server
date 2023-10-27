@@ -31,3 +31,18 @@ export const postController = async (req, res) => {
         return res.status(500).json({ error: 'Internal server error' });
     }
 }
+
+export const postEditController = async (req, res) => {
+    const { description, _id } = req.body;
+    const image = req.file ? req.file.path : null;
+    const updateData = {};
+    if (description) updateData.description = description;
+    if (image) updateData.image = image;
+    const post = await Post.findOneAndUpdate(
+        { _id: _id },
+        updateData,
+        { new: true }
+    )
+    console.log('post', post)
+    return res.status(200).json(post);
+}
