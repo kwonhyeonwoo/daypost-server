@@ -12,3 +12,13 @@ export const deleteController = async (req, res) => {
         return res.status(500).json({ message: "Server error" });
     }
 }
+
+export const searchController = async (req, res) => {
+    const query = req.query.description;
+    console.log('quer', query);
+    console.log('quququ', req.query)
+
+    const results = await Post.find({ description: { $regex: query, $options: 'i' } });
+    console.log('results', results)
+    return res.status(200).json(results);
+}
